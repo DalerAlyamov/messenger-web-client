@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  list-style: none;
+  text-decoration: none;
+  background: none;
+  font: 500 1rem "Montserrat", sans-serif;
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #d3d7d9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #52606f;
+    &:hover {
+      background: #3b4147;
+    }
+  }
+}
