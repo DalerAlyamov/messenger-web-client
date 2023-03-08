@@ -1,0 +1,113 @@
+@import "../../scss";
+
+$height: 54px;
+$focused-border-width: 1.2px;
+$background-color: $nord1;
+$border-radius: 12px;
+
+.animatedInput {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  background: inherit;
+  .errorText {
+    color: $nord11;
+    font-size: 0.875rem;
+  }
+}
+
+.wrap {
+  position: relative;
+  width: 100%;
+  background: inherit;
+  .input {
+    width: 100%;
+    height: $height;
+    border-radius: $border-radius;
+    background: $background-color;
+    padding: 0 20px;
+    border: 1px solid transparent;
+    transition: 80ms linear;
+    font-size: 1rem;
+    font-weight: 600;
+    white-space: pre-wrap;
+    user-select: text;
+    &:not(:placeholder-shown),
+    &:focus {
+      background: transparent;
+      & ~ .placeholder {
+        font-size: 0.75rem;
+        top: -7px;
+        left: 17px;
+        font-weight: 600;
+        background: inherit;
+      }
+    }
+  }
+  .placeholder {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    padding: 0 4px;
+    font-size: 1rem;
+    color: $x-nord1;
+    transition: 80ms linear;
+    pointer-events: none;
+  }
+}
+
+.wrap.default {
+  .input {
+    border: 1px solid transparent;
+    color: $nord4;
+    &:not(:placeholder-shown),
+    &:focus {
+      border-color: $nord2;
+    }
+    &:hover {
+      border-color: $nord10;
+      & ~ .placeholder {
+        color: $nord10;
+      }
+    }
+    &:focus {
+      border-color: $nord10;
+      box-shadow: inset 0 0 0 $focused-border-width $nord10;
+      & ~ .placeholder {
+        color: $nord10;
+      }
+    }
+  }
+}
+
+.wrap.error {
+  .input {
+    border: 1px solid $nord11;
+    color: $nord4;
+    &:focus {
+      border-color: $nord11;
+      box-shadow: inset 0 0 0 $focused-border-width $nord11;
+    }
+  }
+  .placeholder {
+    color: $nord11;
+    &:hover {
+      color: $nord11;
+    }
+  }
+}
+
+.wrap.pending {
+  pointer-events: none;
+  .input {
+    border: 1px solid $nord10;
+    color: $nord10;
+    &:not(:placeholder-shown) {
+      border-color: $nord10;
+    }
+  }
+  .placeholder {
+    color: $nord10;
+  }
+}

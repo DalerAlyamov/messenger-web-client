@@ -1,0 +1,30 @@
+@import "../../scss";
+
+.button {
+	width: 100%;
+	border-radius: 12px;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $nord4;
+	transition: 100ms linear;
+	overflow: hidden;
+}
+
+.button.default {
+	cursor: pointer;
+	background: $nord10;
+	&:hover {
+		background: lighten($nord10, 5%);
+	}
+	&:active {
+		background: lighten($nord10, 8%);
+	}
+}
+
+.button.disabled, .button.pending {
+	pointer-events: none;
+	background: $x-nord1;
+	opacity: 0.5;
+}

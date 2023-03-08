@@ -1,0 +1,34 @@
+@import "../../scss";
+
+.login {
+	width: 100%;
+	min-height: 100vh;
+	padding: 240px 20px 50px 20px;
+	display: flex;
+	justify-content: center;
+	&.pending {
+		pointer-events: none;
+		user-select: none;
+	}
+}
+
+.form {
+	width: 340px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 40px;
+	.title {
+		color: $nord4;
+		font-size: 3rem;
+		font-weight: 500;
+	}
+	.inputs {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
+		background: $x-nord0;
+	}
+}
