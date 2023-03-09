@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import LoadingRipple from "components/loading-ripple";
+import ButtonLoader from "components/button-loader";
 import i from "./i";
 import styles from "./styles.module.scss";
 
@@ -15,7 +15,7 @@ const Button: React.FC<i.props> = ({ status = "default", type, onClick, children
       className={classNames(styles.button, styles[status])}
       onClick={(event) => isDefault && onClick?.(event)}
     >
-      {isPending && <LoadingRipple />}
+      {isPending && <ButtonLoader />}
       {!isPending && children}
     </button>
   );

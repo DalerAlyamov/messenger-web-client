@@ -43,16 +43,11 @@ const Login = () => {
 
   const stopPending = () => {
     setPending(false);
-    makeDefaultStatuses();
-  };
-
-  const handleUpdateType = (method: t.loginMethod) => {
-    makeDefaultStatuses();
-    updateType(method);
-  };
-
-  const makeDefaultStatuses = () => {
     updateButtonStatus("default");
+    makeDefaultFields();
+  };
+
+  const makeDefaultFields = () => {
     updateName((prev) => ({
       ...prev,
       errorText: null,
@@ -63,6 +58,11 @@ const Login = () => {
       errorText: null,
       status: "default",
     }));
+  };
+
+  const handleUpdateType = (method: t.loginMethod) => {
+    updateType(method);
+    makeDefaultFields();
   };
 
   const handleLogin = (event: React.FormEvent) => {
@@ -96,10 +96,6 @@ const Login = () => {
     if (name.value === "" || password.value === "") updateButtonStatus("disabled");
     else updateButtonStatus("default");
   }, [name.value, password.value]);
-
-  React.useEffect(() => {
-    console.log(name, password);
-  }, [name, password]);
 
   return (
     <div className={classNames(styles.login, pending && styles.pending)}>

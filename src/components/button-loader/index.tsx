@@ -2,13 +2,15 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-const LoadingRipple = () => {
+const ButtonLoader = () => {
   return (
-    <div className={styles.loadingRipple}>
+    <div className={styles.buttonLoader}>
+      <div></div>
+      <div></div>
       <div></div>
       <div></div>
     </div>
   );
 };
 
-export default LoadingRipple;
+export default ButtonLoader;
