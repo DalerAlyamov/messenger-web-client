@@ -28,7 +28,7 @@ $border-radius: 12px;
     background: $background-color;
     padding: 0 20px;
     border: 1px solid transparent;
-    transition: 80ms linear;
+    transition: 160ms linear;
     font-size: 1rem;
     font-weight: 600;
     white-space: pre-wrap;
@@ -43,6 +43,9 @@ $border-radius: 12px;
         font-weight: 600;
         background: inherit;
       }
+    }
+    &:hover {
+      transition: 80ms linear;
     }
   }
   .placeholder {
