@@ -47,6 +47,11 @@ $border-radius: 12px;
     &:hover {
       transition: 80ms linear;
     }
+    &:focus {
+      ~ .placeholder {
+        text-shadow: 0.5px 0 0 currentColor;
+      }
+    }
   }
   .placeholder {
     position: absolute;

@@ -101,8 +101,8 @@ const Login = () => {
     <div className={classNames(styles.login, pending && styles.pending)}>
       <form className={styles.form} onSubmit={handleLogin}>
         <div className={styles.title}>Chats</div>
-        <Switcher value={type} onChange={handleUpdateType} />
         <div className={styles.inputs}>
+          <Switcher value={type} onChange={handleUpdateType} />
           <AnimatedInput
             status={name.status}
             placeholder="Логин"

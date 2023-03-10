@@ -24,15 +24,6 @@ instance.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   return newConfig;
 });
 
-const get = async (url: string) => instance.get(url);
-const post = (url: string, body?: any) => instance.post(url, body);
-const del = (url: string, body?: any) => instance.delete(url, { data: body });
-
-export const axiosInstance = instance;
-const request = {
-  get,
-  post,
-  del,
-};
+export const request = instance;
 
 export default request;
