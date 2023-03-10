@@ -2,7 +2,7 @@ import React from "react";
 import IIcons from "./icon";
 import list from "./svg-list";
 
-const Icons: React.FC<IIcons.props> = React.memo(
+const Icon: React.FC<IIcons.props> = React.memo(
   ({ size = 24, name, className }): JSX.Element => (
     <div
       className={className}
@@ -21,4 +21,4 @@ const Icons: React.FC<IIcons.props> = React.memo(
     prevProps.name === nextProps.name && prevProps.size === nextProps.size
 );
 
-export default Icons;
+export default Icon;

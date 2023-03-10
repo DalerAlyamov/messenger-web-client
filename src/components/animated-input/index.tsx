@@ -22,6 +22,7 @@ const AnimatedInput: React.FC<i.props> = ({
           type={type ?? "text"}
           placeholder=" "
           className={styles.input}
+          autoComplete="off"
           onChange={(event) => !isPending && onChange(event)}
         />
         {placeholder && <span className={styles.placeholder}>{placeholder}</span>}

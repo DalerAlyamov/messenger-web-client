@@ -1,6 +1,6 @@
-declare namespace IIcons {
+declare namespace IIcon {
   interface svgList {
-    test: React.ReactNode;
+    close: React.ReactNode;
   }
 
   type name = keyof svgList;
@@ -12,4 +12,4 @@ declare namespace IIcons {
   }
 }
 
-export default IIcons;
+export default IIcon;
