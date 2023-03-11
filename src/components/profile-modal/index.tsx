@@ -1,4 +1,5 @@
 import React from "react";
+import { CSSTransition } from "react-transition-group";
 
 import AnimatedInput from "components/animated-input";
 import Button from "components/button";
@@ -28,50 +29,61 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
     value: "",
   });
 
-  if (!active) return <></>;
   return (
-    <div className={styles.profileModal}>
-      <div className={styles.profile}>
-        <Avatar />
-        <AnimatedInput
-          status={name.status}
-          placeholder="Логин"
-          value={name.value}
-          errorText={name.errorText}
-          onChange={(event) => updateName({ ...name, value: event.target.value })}
-        />
-        <AnimatedInput
-          status={password.status}
-          type="password"
-          placeholder="Старый пароль"
-          value={oldpassword.value}
-          errorText={oldpassword.errorText}
-          onChange={(event) => updateOldpassword({ ...oldpassword, value: event.target.value })}
-        />
-        <AnimatedInput
-          status={password.status}
-          type="password"
-          placeholder="Новый пароль"
-          value={password.value}
-          errorText={password.errorText}
-          onChange={(event) => updatePassword({ ...password, value: event.target.value })}
-        />
-        <AnimatedInput
-          status={password.status}
-          type="password"
-          placeholder="Повторите новый пароль"
-          value={password2.value}
-          errorText={password2.errorText}
-          onChange={(event) => updatePassword2({ ...password2, value: event.target.value })}
-        />
-        <div className={styles.buttonGroup}>
-          <Button status={name.value.trim() === "" ? "disabled" : "default"}>Сохранить</Button>
-          <Button styleType="outlined" onClick={hide}>
-            Отмена
-          </Button>
+    <CSSTransition
+      unmountOnExit
+      in={active}
+      timeout={140}
+      classNames={{
+        enter: styles.fadeEnter,
+        enterActive: styles.fadeEnterActive,
+        exit: styles.fadeExit,
+        exitActive: styles.fadeExitActive,
+      }}
+    >
+      <div className={styles.profileModal}>
+        <div className={styles.profile}>
+          <Avatar />
+          <AnimatedInput
+            status={name.status}
+            placeholder="Логин"
+            value={name.value}
+            errorText={name.errorText}
+            onChange={(event) => updateName({ ...name, value: event.target.value })}
+          />
+          <AnimatedInput
+            status={password.status}
+            type="password"
+            placeholder="Старый пароль"
+            value={oldpassword.value}
+            errorText={oldpassword.errorText}
+            onChange={(event) => updateOldpassword({ ...oldpassword, value: event.target.value })}
+          />
+          <AnimatedInput
+            status={password.status}
+            type="password"
+            placeholder="Новый пароль"
+            value={password.value}
+            errorText={password.errorText}
+            onChange={(event) => updatePassword({ ...password, value: event.target.value })}
+          />
+          <AnimatedInput
+            status={password.status}
+            type="password"
+            placeholder="Повторите новый пароль"
+            value={password2.value}
+            errorText={password2.errorText}
+            onChange={(event) => updatePassword2({ ...password2, value: event.target.value })}
+          />
+          <div className={styles.buttonGroup}>
+            <Button status={name.value.trim() === "" ? "disabled" : "default"}>Сохранить</Button>
+            <Button styleType="outlined" onClick={hide}>
+              Отмена
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </CSSTransition>
   );
 };
 
