@@ -36,11 +36,10 @@ $border-radius: 12px;
     &:not(:placeholder-shown),
     &:focus {
       background: transparent;
-      & ~ .placeholder {
+      ~ .placeholder {
         font-size: 0.75rem;
         top: -7px;
         left: 17px;
-        font-weight: 600;
         background: inherit;
       }
     }

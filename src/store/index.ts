@@ -1,5 +1,5 @@
 import { init } from "@rematch/core";
-import { models, TRootState } from "./models";
+import { models } from "./models";
 import { localstorageState } from "./utils";
 
 const store = init({
@@ -10,12 +10,12 @@ const store = init({
 });
 
 store.subscribe(() => {
-  const { user } = store.getState();
+  // const { user } = store.getState();
 
-  let state: Partial<TRootState> = {};
-  state.user = user;
+  // let state: Partial<TRootState> = {};
+  // state.user = user;
 
-  return localstorageState.set(state);
+  // return localstorageState.set(state);
 });
 
 export default store;

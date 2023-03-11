@@ -1,0 +1,22 @@
+@import "../../../../scss";
+
+.sidebar {
+  background: $nord0;
+  border-right: 1px solid $nord2;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  overflow: visible;
+  position: relative;
+}
+
+.resizeHandler {
+  cursor: ew-resize !important;
+  position: absolute;
+  right: -0.25rem;
+	z-index: 2;
+  top: 0;
+  width: 0.25rem;
+  height: 100vh;
+  overflow: hidden;
+}

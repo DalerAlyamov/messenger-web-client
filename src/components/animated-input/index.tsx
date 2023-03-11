@@ -13,7 +13,6 @@ const AnimatedInput: React.FC<i.props> = ({
   errorText,
 }) => {
   const isPending = status === "pending";
-
   return (
     <div className={styles.animatedInput}>
       <div className={classNames(styles.wrap, styles[status])}>

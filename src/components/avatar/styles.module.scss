@@ -1,0 +1,14 @@
+@import "../../scss";
+
+.avatar {
+	background: $nord14;
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	color: $nord4;
+	font-weight: 700;
+	font-size: 2rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

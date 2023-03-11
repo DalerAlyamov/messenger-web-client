@@ -5,14 +5,14 @@ import ButtonLoader from "components/button-loader";
 import i from "./i";
 import styles from "./styles.module.scss";
 
-const Button: React.FC<i.props> = ({ status = "default", type, onClick, children }) => {
+const Button: React.FC<i.props> = ({ status = "default", type, onClick, children, styleType="contained" }) => {
   const isDefault = status === "default";
   const isPending = status === "pending";
 
   return (
     <button
       type={type ?? "button"}
-      className={classNames(styles.button, styles[status])}
+      className={classNames(styles.button, styles[status], styles[styleType])}
       onClick={(event) => isDefault && onClick?.(event)}
     >
       {isPending && <ButtonLoader />}

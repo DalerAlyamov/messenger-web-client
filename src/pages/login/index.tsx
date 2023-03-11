@@ -15,7 +15,7 @@ const Login = () => {
   const [pending, setPending] = React.useState(false);
   const [commonError, setCommonError] = React.useState<string>();
   const [type, updateType] = React.useState<t.loginMethod>("sign-in");
-  const [buttonStatus, updateButtonStatus] = React.useState<t.buttonStatus>("default");
+  const [buttonStatus, updateButtonStatus] = React.useState<t.buttonStatus>("disabled");
 
   const [name, updateName] = React.useState<i.input>({
     status: "default",
