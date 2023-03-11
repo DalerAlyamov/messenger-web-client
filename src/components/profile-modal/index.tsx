@@ -41,8 +41,8 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
         exitActive: styles.fadeExitActive,
       }}
     >
-      <div className={styles.profileModal}>
-        <div className={styles.profile}>
+      <div className={styles.profileModal} onMouseDown={() => hide()}>
+        <div className={styles.profile} onMouseDown={(e) => e.stopPropagation()}>
           <Avatar />
           <AnimatedInput
             status={name.status}
