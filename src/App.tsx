@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Routes from "routes";
@@ -8,10 +8,10 @@ import "global.scss";
 
 const App = () => (
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <Routes />
       <Cover />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 );
 
