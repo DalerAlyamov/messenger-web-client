@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import ReactTextareaAutosize from "react-textarea-autosize";
 
 import Avatar from "components/avatar";
@@ -9,6 +10,7 @@ const Chat = () => {
   const inputRef = React.useRef<HTMLTextAreaElement | null>(null);
 
   const [inputValue, setInputValue] = React.useState("");
+  const [userOnline, updateUserOnline] = React.useState(false);
 
   const handleSend = () => {
     setInputValue("");
@@ -29,7 +31,9 @@ const Chat = () => {
         <Avatar />
         <div className={styles.title}>
           <span className={styles.name}>Daler Alyamov</span>
-          <span className={styles.status}>Не в сети</span>
+          <span className={classNames(styles.status, userOnline && styles.active)}>
+            {userOnline ? "В сети" : "Не в сети"}
+          </span>
         </div>
       </div>
       <div className={styles.container}>

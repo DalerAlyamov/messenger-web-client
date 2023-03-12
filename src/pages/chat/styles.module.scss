@@ -34,6 +34,9 @@
       font-weight: 600;
       color: $x-nord1;
       line-height: 18px;
+      &.active {
+        color: $nord10;
+      }
     }
   }
 }

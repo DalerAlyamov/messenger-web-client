@@ -32,6 +32,11 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
   });
 
   const handleCancel = () => hide();
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    hide();
+  };
+
   return (
     <CSSTransition
       unmountOnExit
@@ -45,7 +50,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
       }}
     >
       <div className={styles.profileModal} onMouseDown={() => hide()}>
-        <div className={styles.profile} onMouseDown={(e) => e.stopPropagation()}>
+        <form className={styles.profile} onMouseDown={(e) => e.stopPropagation()} onSubmit={handleSubmit}>
           <InputAvatar />
           <AnimatedInput
             status={name.status}
@@ -83,12 +88,14 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
             onChange={(event) => updatePassword2({ ...password2, value: event.target.value })}
           />
           <div className={styles.buttonGroup}>
-            <Button status={name.value.trim() === "" ? "disabled" : "default"}>Сохранить</Button>
+            <Button type="submit" status={name.value.trim() === "" ? "disabled" : "default"}>
+              Сохранить
+            </Button>
             <Button styleType="outlined" onClick={handleCancel}>
               Отмена
             </Button>
           </div>
-        </div>
+        </form>
       </div>
     </CSSTransition>
   );

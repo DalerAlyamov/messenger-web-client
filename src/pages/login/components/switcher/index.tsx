@@ -12,7 +12,7 @@ const Switcher: React.FC<i.switcher> = (props) => {
         className={classNames(styles.button, props.value === "sign-in" && styles.selected)}
         onClick={() => props.onChange("sign-in")}
       >
-        Войти
+        Вход
       </button>
       <button
         type="button"
