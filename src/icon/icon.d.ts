@@ -2,6 +2,9 @@ declare namespace IIcon {
   interface svgList {
     close: React.ReactNode;
     menuBurger: React.ReactNode;
+    camera: React.ReactNode;
+    visibility: React.ReactNode;
+    visibilityOff: React.ReactNode;
     search: React.ReactNode;
     logOut: React.ReactNode;
     user: React.ReactNode;

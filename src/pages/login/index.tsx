@@ -13,6 +13,7 @@ import Icon from "icon";
 
 const Login = () => {
   const [pending, setPending] = React.useState(false);
+  const [passwordVisibility, setPasswordVisibility] = React.useState(false);
   const [commonError, setCommonError] = React.useState<string>();
   const [type, updateType] = React.useState<t.loginMethod>("sign-in");
   const [buttonStatus, updateButtonStatus] = React.useState<t.buttonStatus>("disabled");
@@ -202,6 +203,8 @@ const Login = () => {
             value={password.value}
             errorText={password.errorText}
             onChange={(event) => updatePassword({ ...password, value: event.target.value })}
+            visibility={passwordVisibility}
+            togglVisibility={() => setPasswordVisibility(!passwordVisibility)}
           />
           {type === "sign-up" && (
             <AnimatedInput

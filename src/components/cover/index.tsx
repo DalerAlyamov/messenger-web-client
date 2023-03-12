@@ -1,10 +1,16 @@
 import React from "react";
-import { useDispatch, useSelector } from "store/hooks";
 
+import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "store/hooks";
 import styles from "./styles.module.scss";
 
 const Cover = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  React.useEffect(() => {
+    dispatch.cover.hide();
+  }, [dispatch.cover, location.pathname]);
 
   React.useEffect(() => {
     const handleClick = (e: MouseEvent) => {

@@ -8,6 +8,8 @@ declare namespace i {
     type?: "text" | "password";
     status?: t.status;
     errorText?: string | null;
+    visibility?: boolean;
+    togglVisibility?: () => void;
   }
 }
 

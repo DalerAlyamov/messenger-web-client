@@ -20,8 +20,12 @@ $border-radius: 12px;
 .wrap {
   position: relative;
   width: 100%;
+  border-radius: 12px;
   background: inherit;
+  display: flex;
   .input {
+    position: relative;
+    z-index: 1;
     width: 100%;
     height: $height;
     border-radius: $border-radius;
@@ -61,6 +65,28 @@ $border-radius: 12px;
     color: $x-nord1;
     transition: 80ms linear;
     pointer-events: none;
+    z-index: 2;
+  }
+  .toggleHideButton {
+    cursor: pointer;
+    padding: 0 12px 0 12px;
+    height: 100%;
+    border-radius: 0 $border-radius $border-radius 0;
+    background: $background-color;
+    color: $nord4;
+    transition: 100ms linear;
+    z-index: 2;
+    &:hover {
+      background: lighten($background-color, 5%);
+    }
+    &:active {
+      background: lighten($background-color, 9%);
+    }
+  }
+  &.type_password {
+    .input {
+      border-radius: $border-radius 0 0 $border-radius;
+    }
   }
 }
 
