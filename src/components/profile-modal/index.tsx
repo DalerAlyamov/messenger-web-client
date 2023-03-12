@@ -8,6 +8,8 @@ import i from "./i";
 import styles from "./styles.module.scss";
 
 const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) => {
+  const [oldpasswordVisibility, setOldpasswordVisibility] = React.useState(false);
+  const [passwordVisibility, setPasswordVisibility] = React.useState(false);
   const [name, updateName] = React.useState<i.input>({
     status: "default",
     errorText: "",
@@ -29,6 +31,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
     value: "",
   });
 
+  const handleCancel = () => hide();
   return (
     <CSSTransition
       unmountOnExit
@@ -54,6 +57,8 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
           <AnimatedInput
             status={password.status}
             type="password"
+            visibility={oldpasswordVisibility}
+            togglVisibility={() => setOldpasswordVisibility(!oldpasswordVisibility)}
             placeholder="Старый пароль"
             value={oldpassword.value}
             errorText={oldpassword.errorText}
@@ -62,6 +67,8 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
           <AnimatedInput
             status={password.status}
             type="password"
+            visibility={passwordVisibility}
+            togglVisibility={() => setPasswordVisibility(!passwordVisibility)}
             placeholder="Новый пароль"
             value={password.value}
             errorText={password.errorText}
@@ -69,7 +76,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
           />
           <AnimatedInput
             status={password.status}
-            type="password"
+            visibility={passwordVisibility}
             placeholder="Повторите новый пароль"
             value={password2.value}
             errorText={password2.errorText}
@@ -77,7 +84,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
           />
           <div className={styles.buttonGroup}>
             <Button status={name.value.trim() === "" ? "disabled" : "default"}>Сохранить</Button>
-            <Button styleType="outlined" onClick={hide}>
+            <Button styleType="outlined" onClick={handleCancel}>
               Отмена
             </Button>
           </div>

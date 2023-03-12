@@ -35,6 +35,7 @@ const Login = () => {
   });
 
   const startPending = () => {
+    setPasswordVisibility(false);
     setPending(true);
     setCommonError(undefined);
     updateButtonStatus("pending");
