@@ -3,7 +3,7 @@ import { CSSTransition } from "react-transition-group";
 
 import AnimatedInput from "components/animated-input";
 import Button from "components/button";
-import Avatar from "components/avatar";
+import InputAvatar from "components/input-avatar";
 import i from "./i";
 import styles from "./styles.module.scss";
 
@@ -13,7 +13,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
   const [name, updateName] = React.useState<i.input>({
     status: "default",
     errorText: "",
-    value: "",
+    value: "Daler Alyamov",
   });
   const [oldpassword, updateOldpassword] = React.useState<i.input>({
     status: "default",
@@ -46,7 +46,7 @@ const ProfileModal = ({ active, hide }: { active: boolean; hide: () => void }) =
     >
       <div className={styles.profileModal} onMouseDown={() => hide()}>
         <div className={styles.profile} onMouseDown={(e) => e.stopPropagation()}>
-          <Avatar />
+          <InputAvatar />
           <AnimatedInput
             status={name.status}
             placeholder="Логин"

@@ -41,7 +41,7 @@ $border-radius: 12px;
     &:focus {
       background: transparent;
       ~ .placeholder {
-        font-size: 0.75rem;
+        font-size: 0.875rem;
         top: -7px;
         left: 17px;
         background: inherit;
@@ -58,7 +58,7 @@ $border-radius: 12px;
   }
   .placeholder {
     position: absolute;
-    top: 18px;
+    top: 16px;
     left: 16px;
     padding: 0 4px;
     font-size: 1rem;

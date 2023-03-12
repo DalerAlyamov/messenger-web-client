@@ -3,6 +3,8 @@ declare namespace IIcon {
     close: React.ReactNode;
     menuBurger: React.ReactNode;
     camera: React.ReactNode;
+    messageSend: React.ReactNode;
+    arrowBack: React.ReactNode;
     visibility: React.ReactNode;
     visibilityOff: React.ReactNode;
     search: React.ReactNode;

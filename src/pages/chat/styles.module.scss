@@ -1,1 +1,105 @@
 @import "../../scss";
+
+.chat {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 56px 1fr 78px;
+}
+
+.topbar {
+  width: 100%;
+  height: 100%;
+  background: $nord0;
+  border-bottom: 1px solid $nord2;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0 26px;
+  .title {
+    display: flex;
+    flex-direction: column;
+    .name {
+      display: flex;
+      align-items: center;
+      font-size: 1.125rem;
+      color: $nord4;
+      line-height: 20px;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: $x-nord1;
+      line-height: 18px;
+    }
+  }
+}
+
+.container {
+  height: 100%;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $x-nord0;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $nord1;
+    border-radius: 10px;
+    &:hover {
+      background: $x-nord1;
+    }
+  }
+  .messageList {
+    height: min-content;
+  }
+}
+
+.inputContainer {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 700px;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  .input {
+    height: 54px;
+    border-radius: 16px;
+    background: $nord0;
+    flex-grow: 1;
+    padding: 17px 20px;
+    width: 100%;
+    color: $nord4;
+    min-height: 54px;
+    resize: none;
+    transition: 100ms linear;
+    overflow: hidden;
+    &::placeholder {
+      color: $x-nord1;
+    }
+  }
+  .sendButton {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $nord0;
+    transition: 100ms linear;
+    border-radius: 50px;
+    color: $nord4;
+    min-width: 54px;
+    min-height: 54px;
+    &:hover {
+      background: $nord10;
+    }
+  }
+}

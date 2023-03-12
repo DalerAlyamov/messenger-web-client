@@ -20,7 +20,7 @@ const Routes: React.FC = (): JSX.Element => {
       element: <ChatLayout />,
       children: [
         {
-          index: true,
+          path: "/:id",
           element: <Chat />,
         },
       ],

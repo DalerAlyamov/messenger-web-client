@@ -15,6 +15,7 @@ const Topbar = () => {
   const [profileModalState, setProfileModalState] = React.useState(false);
   const [dropdownMenuState, setDropdownMenuState] = React.useState(false);
   const [searchValue, updateSearchValue] = React.useState("");
+  const [searchFocused, setSearchFocused] = React.useState(false);
 
   const handleOpenProfile = () => setProfileModalState(true);
 
@@ -34,14 +35,24 @@ const Topbar = () => {
     <>
       <div className={styles.topbar}>
         <button
-          className={classNames(styles.topbarMenuButton, dropdownMenuState && styles.active)}
+          className={classNames(
+            styles.topbarMenuButton,
+            dropdownMenuState && styles.active,
+            searchFocused && styles.type_back
+          )}
           onClick={(e) => {
             e.stopPropagation();
-            setDropdownMenuState(true);
-            dispatch.cover.show();
+            if (searchFocused) {
+              updateSearchValue("");
+              setSearchFocused(false);
+            } else {
+              setDropdownMenuState(true);
+              dispatch.cover.show();
+            }
           }}
         >
-          <Icon name="menuBurger" />
+          <Icon name="arrowBack" className={styles.arrowIcon} />
+          <Icon name="menuBurger" className={styles.burgerIcon} />
         </button>
         <div className={styles.searchBox} draggable={false}>
           <div className={styles.searchField}>
@@ -53,6 +64,7 @@ const Topbar = () => {
               type="text"
               className={styles.searchInput}
               placeholder="Поиск"
+              onFocus={() => setSearchFocused(true)}
             />
           </div>
         </div>

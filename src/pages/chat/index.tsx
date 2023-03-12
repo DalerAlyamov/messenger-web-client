@@ -1,10 +1,53 @@
 import React from "react";
-import styles from "./styles.module.scss"
+import ReactTextareaAutosize from "react-textarea-autosize";
+
+import Avatar from "components/avatar";
+import Icon from "icon";
+import styles from "./styles.module.scss";
 
 const Chat = () => {
+  const inputRef = React.useRef<HTMLTextAreaElement | null>(null);
+
+  const [inputValue, setInputValue] = React.useState("");
+
+  const handleSend = () => {
+    setInputValue("");
+    inputRef.current?.focus();
+  };
+
+  function handleKeyDown(event: React.KeyboardEvent) {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      if (inputValue.trim() === "") return;
+      handleSend();
+    }
+  }
+
   return (
-    <div>
-      <></>
+    <div className={styles.chat}>
+      <div className={styles.topbar}>
+        <Avatar />
+        <div className={styles.title}>
+          <span className={styles.name}>Daler Alyamov</span>
+          <span className={styles.status}>Не в сети</span>
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.messageList}></div>
+      </div>
+      <div className={styles.inputContainer}>
+        <ReactTextareaAutosize
+          ref={inputRef}
+          value={inputValue}
+          onChange={(event) => setInputValue(event.target.value)}
+          className={styles.input}
+          placeholder="Сообщение"
+          onKeyDown={handleKeyDown}
+        />
+        <button className={styles.sendButton} onClick={handleSend}>
+          <Icon name="messageSend" />
+        </button>
+      </div>
     </div>
   );
 };
