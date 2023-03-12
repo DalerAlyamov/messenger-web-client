@@ -73,7 +73,7 @@ $border-radius: 12px;
     height: 100%;
     border-radius: 0 $border-radius $border-radius 0;
     background: $background-color;
-    color: $nord4;
+    color: lighten($nord3, 20%);
     transition: 100ms linear;
     z-index: 2;
     &:hover {

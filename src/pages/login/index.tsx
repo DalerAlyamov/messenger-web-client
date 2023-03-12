@@ -209,10 +209,10 @@ const Login = () => {
           {type === "sign-up" && (
             <AnimatedInput
               status={password2.status}
-              type="password"
               placeholder="Подтвердите пароль"
               value={password2.value}
               errorText={password2.errorText}
+              visibility={passwordVisibility}
               onChange={(event) => updatePassword2({ ...password2, value: event.target.value })}
             />
           )}
